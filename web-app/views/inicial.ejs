@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App_Web</title>
+</head>
+<body>
+    
+    <h1><%= titulo %></h1>
+    <h2>NestJS MVC + EJS <%= horaAgora %></h2>
+
+    <ol>
+        <% for( let index = 0; index < listaPessoas.length; index++ ) { %>
+        <li> <%= listaPessoas [index].nome %>: <%= listaPessoas [index].email %>  </li>
+        <% } %>
+    </ol>
+    
+    <table border="2">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let index = 0; index < listaPessoas.length; index++) { %>
+            <tr>
+                <td><%= index + 1 %></td>
+                <td><%= listaPessoas[index].nome %></td>
+                <td><%= listaPessoas[index].email %></td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+
+
+</body>
+</html>
