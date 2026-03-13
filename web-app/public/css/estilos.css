@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+
+:root {
+	--bg-1: #f9f5ff;
+	--bg-2: #f4eeff;
+	--bg-3: #fef8ff;
+	--surface: #ffffffcc;
+	--surface-strong: #ffffff;
+	--primary: #7f56d9;
+	--primary-soft: #a78bfa;
+	--accent: #d6bcfa;
+	--text: #372654;
+	--text-soft: #5d4a80;
+	--line: #e8ddfa;
+	--shadow: 0 14px 30px rgba(127, 86, 217, 0.16);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	position: relative;
+	min-height: 100vh;
+	padding: 2rem 1rem 3rem;
+	color: var(--text);
+	font-family: 'Nunito', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	background:
+		radial-gradient(circle at 12% 12%, #efe4ff 0 26%, transparent 27%),
+		radial-gradient(circle at 85% 4%, #f7deff 0 22%, transparent 23%),
+		linear-gradient(135deg, var(--bg-1), var(--bg-2) 54%, var(--bg-3));
+	animation: page-enter 0.8s ease-out;
+}
+
+body::before {
+	content: '';
+	position: fixed;
+	inset: -10rem auto auto -8rem;
+	width: 18rem;
+	height: 18rem;
+	border-radius: 50%;
+	background: radial-gradient(circle, #dcc8ff 0%, #dcc8ff00 70%);
+	z-index: -1;
+}
+
+body::after {
+	content: '';
+	position: fixed;
+	inset: auto -6rem -7rem auto;
+	width: 20rem;
+	height: 20rem;
+	border-radius: 50%;
+	background: radial-gradient(circle, #f5ccff 0%, #f5ccff00 72%);
+	z-index: -1;
+}
+
+h1,
+h2 {
+	margin: 0;
+	line-height: 1.2;
+}
+
+h1 {
+	max-width: 900px;
+	margin: 0 auto;
+	font-family: 'Playfair Display', Georgia, serif;
+	font-size: clamp(1.7rem, 4vw, 2.5rem);
+	color: #2f1e4d;
+	animation: rise-in 0.5s ease-out both;
+}
+
+h2 {
+	max-width: 900px;
+	margin: 0.6rem auto 1.2rem;
+	color: var(--text-soft);
+	font-size: clamp(1rem, 2.2vw, 1.2rem);
+	font-weight: 700;
+	animation: rise-in 0.55s ease-out 0.08s both;
+}
+
+hr {
+	max-width: 900px;
+	margin: 1rem auto 1.4rem;
+	border: 0;
+	border-top: 2px solid var(--line);
+}
+
+ol,
+table,
+form {
+	max-width: 900px;
+	margin: 0 auto;
+	border-radius: 16px;
+	background: var(--surface);
+	backdrop-filter: blur(2px);
+	box-shadow: var(--shadow);
+	animation: rise-in 0.6s ease-out both;
+}
+
+ol {
+	margin-bottom: 1rem;
+	padding: 1rem 1.4rem 1rem 2.2rem;
+	border: 1px solid var(--line);
+}
+
+ol li {
+	margin: 0.4rem 0;
+	color: #4a366f;
+	font-weight: 600;
+}
+
+table {
+	width: 100%;
+	overflow: hidden;
+	border-collapse: collapse;
+	border: 1px solid var(--line);
+}
+
+thead {
+	background: linear-gradient(90deg, #d7c1fb, #edd8ff);
+}
+
+th,
+td {
+	padding: 0.85rem;
+	text-align: left;
+	border-bottom: 1px solid #efe6ff;
+}
+
+th {
+	color: #3c295f;
+	font-weight: 800;
+}
+
+tbody tr {
+	background: #ffffffd6;
+	transition: background-color 0.25s ease;
+}
+
+tbody tr:hover {
+	background: #f7f0ff;
+}
+
+form {
+	margin-top: 0.5rem;
+	padding: 1.2rem;
+	border: 1px solid var(--line);
+}
+
+form > div {
+	display: flex;
+	flex-direction: column;
+	gap: 0.45rem;
+	margin-bottom: 1rem;
+}
+
+label {
+	color: #473168;
+	font-weight: 800;
+}
+
+input,
+textarea {
+	width: 100%;
+	padding: 0.75rem 0.9rem;
+	border: 1px solid #dccbf8;
+	border-radius: 10px;
+	background: var(--surface-strong);
+	color: var(--text);
+	font: inherit;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus,
+textarea:focus {
+	outline: none;
+	border-color: var(--primary-soft);
+	box-shadow: 0 0 0 3px #d9c8ff8a;
+}
+
+textarea {
+	min-height: 130px;
+	resize: vertical;
+}
+
+button {
+	border: 0;
+	border-radius: 999px;
+	padding: 0.68rem 1.15rem;
+	font: inherit;
+	font-weight: 800;
+	cursor: pointer;
+	transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+}
+
+button[type='submit'] {
+	color: #fff;
+	background: linear-gradient(135deg, #7f56d9, #9f7aea);
+	box-shadow: 0 8px 18px rgba(127, 86, 217, 0.25);
+}
+
+button[type='reset'] {
+	margin-left: 0.5rem;
+	color: #503878;
+	background: #efe5ff;
+}
+
+button:hover {
+	transform: translateY(-1px);
+}
+
+button:active {
+	transform: translateY(1px);
+}
+
+@keyframes page-enter {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes rise-in {
+	from {
+		opacity: 0;
+		transform: translateY(8px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (max-width: 640px) {
+	body {
+		padding: 1.2rem 0.7rem 1.6rem;
+	}
+
+	ol,
+	table,
+	form {
+		border-radius: 12px;
+	}
+
+	th,
+	td {
+		padding: 0.62rem;
+		font-size: 0.92rem;
+	}
+
+	form {
+		padding: 0.95rem;
+	}
+
+	button {
+		width: 100%;
+	}
+
+	button[type='reset'] {
+		margin-top: 0.45rem;
+		margin-left: 0;
+	}
+}
