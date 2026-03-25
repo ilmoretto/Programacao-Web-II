@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= titulo %></title>
+  <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+  <h1><%= nome %></h1>
+  <p><%= email %></p>
+  <hr>
+
+  <h2>Habilidades</h2>
+  <ul>
+    <% habilidades.forEach(function(h) { %>
+      <li><%= h %></li>
+    <% }) %>
+  </ul>
+
+  <h2>Experiência</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Cargo</th>
+        <th>Empresa</th>
+        <th>Ano</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% experiencias.forEach(function(exp) { %>
+        <tr>
+          <td><%= exp.cargo %></td>
+          <td><%= exp.empresa %></td>
+          <td><%= exp.ano %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+
+  <h2>Formação</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Curso</th>
+        <th>Instituição</th>
+        <th>Período</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% formacao.forEach(function(f) { %>
+        <tr>
+          <td><%= f.curso %></td>
+          <td><%= f.instituicao %></td>
+          <td><%= f.ano %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</body>
+</html>

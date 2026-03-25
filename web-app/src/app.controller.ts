@@ -7,13 +7,13 @@ export class AppController {
 
   @Get()
   @Render('inicial')
-  getInicial(): object {
+  getHome(): object {
     return {
-      titulo: 'App Web com NestJS',
-      horaAgora: new Date(),
-      listaPessoas: [
-        { nome: 'Alencar Morete', email: 'morete.alencar@gmail.com' },
-        { nome: 'Jéssica Machado', email: 'j.machado.psi@gmail.com' },
+      titulo: 'Navegação',
+      rotas: [
+        { path: '/contato', label: 'Contato' },
+        { path: '/sobre', label: 'Sobre' },
+        { path: '/curriculo', label: 'Currículo' },
       ],
     };
   }
