@@ -117,4 +117,11 @@ export class AppController {
       ],
     };
   }
+  @Get('login')
+  @Render('autenticacao/login')
+  login(): object{
+    return{
+
+    };
+  }
 }
