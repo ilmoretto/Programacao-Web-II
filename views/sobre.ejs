@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="/css/estilos.css">
+
+<div class="pagina-estilos">
+  <h1><%= titulo %></h1>
+  <h2><%= nome %></h2>
+  <hr>
+
+  <p><strong>Curso:</strong> <%= curso %></p>
+
+  <h2>Resumo</h2>
+  <p><%= resumo %></p>
+
+  <h2>Objetivo Profissional</h2>
+  <p><%= objetivo %></p>
+
+  <h2>Habilidades</h2>
+  <ul>
+    <% habilidades.forEach(function(habilidade) { %>
+      <li><%= habilidade %></li>
+    <% }) %>
+  </ul>
+
+  <h2>Interesses</h2>
+  <ul>
+    <% hobbies.forEach(function(hobby) { %>
+      <li><%= hobby %></li>
+    <% }) %>
+  </ul>
+</div>

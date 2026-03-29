@@ -1,0 +1,429 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+
+.pagina-estilos {
+	--bg-1: #f2f8ff;
+	--bg-2: #e7f2ff;
+	--bg-3: #ffffff;
+	--surface: #ffffffd9;
+	--surface-strong: #ffffff;
+	--primary: #0a66c2;
+	--primary-soft: #3b82d9;
+	--accent: #b5d4f4;
+	--text: #12314d;
+	--text-soft: #335372;
+	--line: #c9def4;
+	--shadow: 0 12px 28px rgba(10, 102, 194, 0.14);
+	position: relative;
+	min-height: 100%;
+	padding: 2rem 1rem 3rem;
+	color: var(--text);
+	font-family: 'Nunito', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	background:
+		radial-gradient(circle at 12% 12%, #d8ebff 0 26%, transparent 27%),
+		radial-gradient(circle at 85% 4%, #cce7ff 0 22%, transparent 23%),
+		linear-gradient(135deg, var(--bg-1), var(--bg-2) 54%, var(--bg-3));
+	animation: page-enter 0.8s ease-out;
+	border-radius: 20px;
+	overflow: hidden;
+}
+
+.pagina-estilos,
+.pagina-estilos * {
+	box-sizing: border-box;
+}
+
+.pagina-estilos::before {
+	content: '';
+	position: fixed;
+	inset: -10rem auto auto -8rem;
+	width: 18rem;
+	height: 18rem;
+	border-radius: 50%;
+	background: radial-gradient(circle, #c3ddf7 0%, #c3ddf700 70%);
+	z-index: -1;
+}
+
+.pagina-estilos::after {
+	content: '';
+	position: fixed;
+	inset: auto -6rem -7rem auto;
+	width: 20rem;
+	height: 20rem;
+	border-radius: 50%;
+	background: radial-gradient(circle, #d3e8fb 0%, #d3e8fb00 72%);
+	z-index: -1;
+}
+
+.pagina-estilos h1,
+.pagina-estilos h2 {
+	margin: 0;
+	line-height: 1.2;
+}
+
+.pagina-estilos h1 {
+	max-width: 900px;
+	margin: 0 auto;
+	font-family: 'Playfair Display', Georgia, serif;
+	font-size: clamp(1.7rem, 4vw, 2.5rem);
+	color: #0f3c66;
+	animation: rise-in 0.5s ease-out both;
+}
+
+.pagina-estilos h2 {
+	max-width: 900px;
+	margin: 0.6rem auto 1.2rem;
+	color: var(--text-soft);
+	font-size: clamp(1rem, 2.2vw, 1.2rem);
+	font-weight: 700;
+	animation: rise-in 0.55s ease-out 0.08s both;
+}
+
+.pagina-estilos p,
+.pagina-estilos ul {
+	max-width: 900px;
+	margin: 0.6rem auto 1rem;
+}
+
+.pagina-estilos .home-page {
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 0.2rem 0 0.6rem;
+	animation: rise-in 0.55s ease-out both;
+}
+
+.pagina-estilos .home-hero {
+	padding: 1.15rem 1.25rem;
+	border: 1px solid var(--line);
+	border-radius: 18px;
+	background: linear-gradient(130deg, #f8fcff 0%, #e9f3ff 62%, #f7fbff 100%);
+	box-shadow: var(--shadow);
+	margin-bottom: 1rem;
+}
+
+.pagina-estilos .home-eyebrow {
+	margin: 0 0 0.35rem;
+	color: var(--primary);
+	font-size: 0.8rem;
+	font-weight: 800;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
+.pagina-estilos .home-hero h1 {
+	max-width: none;
+	margin: 0;
+}
+
+.pagina-estilos .home-lead {
+	max-width: none;
+	margin: 0.6rem 0 0;
+	color: var(--text-soft);
+	font-size: 1.04rem;
+	line-height: 1.55;
+}
+
+.pagina-estilos .home-nav {
+	border: 1px solid var(--line);
+	border-radius: 18px;
+	background: var(--surface);
+	box-shadow: var(--shadow);
+	padding: 0.95rem;
+	backdrop-filter: blur(2px);
+}
+
+.pagina-estilos .home-links {
+	max-width: none;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 0.8rem;
+	border: 0;
+	background: transparent;
+	box-shadow: none;
+	animation: none;
+}
+
+.pagina-estilos .home-link-item {
+	margin: 0;
+	animation: rise-in 0.45s ease-out both;
+	animation-delay: var(--item-delay, 0s);
+}
+
+.pagina-estilos .home-link {
+	min-height: 104px;
+	padding: 0.9rem 0.95rem;
+	border-radius: 14px;
+	border: 1px solid #d6e6f8;
+	background: linear-gradient(140deg, #ffffff 0%, #f5faff 100%);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 0.65rem;
+	text-decoration: none;
+	box-shadow: 0 8px 22px rgba(10, 102, 194, 0.08);
+	transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.pagina-estilos .home-link:hover {
+	transform: translateY(-3px);
+	border-color: #aac9eb;
+	box-shadow: 0 12px 24px rgba(10, 102, 194, 0.14);
+	text-decoration: none;
+}
+
+.pagina-estilos .home-link:focus-visible {
+	outline: 3px solid #c5ddf6;
+	outline-offset: 2px;
+}
+
+.pagina-estilos .home-link-label {
+	color: #123c63;
+	font-size: 1.08rem;
+	font-weight: 800;
+	line-height: 1.35;
+}
+
+.pagina-estilos .home-link-action {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: fit-content;
+	padding: 0.3rem 0.65rem;
+	border-radius: 999px;
+	font-size: 0.76rem;
+	font-weight: 800;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: #0a5aa9;
+	background: #ddeeff;
+}
+
+.pagina-estilos ul {
+	padding: 1rem 1.2rem;
+	list-style-position: inside;
+	border: 1px solid var(--line);
+	border-radius: 14px;
+	background: var(--surface);
+	box-shadow: var(--shadow);
+}
+
+.pagina-estilos li {
+	margin: 0.35rem 0;
+}
+
+.pagina-estilos a {
+	color: var(--primary);
+	font-weight: 700;
+	text-decoration: none;
+}
+
+.pagina-estilos a:hover {
+	text-decoration: underline;
+}
+
+.pagina-estilos hr {
+	max-width: 900px;
+	margin: 1rem auto 1.4rem;
+	border: 0;
+	border-top: 2px solid var(--line);
+}
+
+.pagina-estilos ol,
+.pagina-estilos table,
+.pagina-estilos form {
+	max-width: 900px;
+	margin: 0 auto;
+	border-radius: 16px;
+	background: var(--surface);
+	backdrop-filter: blur(2px);
+	box-shadow: var(--shadow);
+	animation: rise-in 0.6s ease-out both;
+}
+
+.pagina-estilos ol {
+	margin-bottom: 1rem;
+	padding: 1rem 1.4rem 1rem 2.2rem;
+	border: 1px solid var(--line);
+}
+
+.pagina-estilos ol li {
+	margin: 0.4rem 0;
+	color: #1e4c77;
+	font-weight: 600;
+}
+
+.pagina-estilos table {
+	width: 100%;
+	overflow: hidden;
+	border-collapse: collapse;
+	border: 1px solid var(--line);
+}
+
+.pagina-estilos thead {
+	background: linear-gradient(90deg, #d6e9fb, #eaf4ff);
+}
+
+.pagina-estilos th,
+.pagina-estilos td {
+	padding: 0.85rem;
+	text-align: left;
+	border-bottom: 1px solid #e4effa;
+}
+
+.pagina-estilos th {
+	color: #17466e;
+	font-weight: 800;
+}
+
+.pagina-estilos tbody tr {
+	background: #ffffffd6;
+	transition: background-color 0.25s ease;
+}
+
+.pagina-estilos tbody tr:hover {
+	background: #f1f8ff;
+}
+
+.pagina-estilos form {
+	margin-top: 0.5rem;
+	padding: 1.2rem;
+	border: 1px solid var(--line);
+}
+
+.pagina-estilos form > div {
+	display: flex;
+	flex-direction: column;
+	gap: 0.45rem;
+	margin-bottom: 1rem;
+}
+
+.pagina-estilos label {
+	color: #1b4a73;
+	font-weight: 800;
+}
+
+.pagina-estilos input,
+.pagina-estilos textarea {
+	width: 100%;
+	padding: 0.75rem 0.9rem;
+	border: 1px solid #bcd5ee;
+	border-radius: 10px;
+	background: var(--surface-strong);
+	color: var(--text);
+	font: inherit;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pagina-estilos input:focus,
+.pagina-estilos textarea:focus {
+	outline: none;
+	border-color: var(--primary-soft);
+	box-shadow: 0 0 0 3px #c6ddf68a;
+}
+
+.pagina-estilos textarea {
+	min-height: 130px;
+	resize: vertical;
+}
+
+.pagina-estilos button {
+	border: 0;
+	border-radius: 999px;
+	padding: 0.68rem 1.15rem;
+	font: inherit;
+	font-weight: 800;
+	cursor: pointer;
+	transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pagina-estilos button[type='submit'] {
+	color: #fff;
+	background: linear-gradient(135deg, #0a66c2, #2f86de);
+	box-shadow: 0 8px 18px rgba(10, 102, 194, 0.25);
+}
+
+.pagina-estilos button[type='reset'] {
+	margin-left: 0.5rem;
+	color: #1f4e78;
+	background: #e7f2ff;
+}
+
+.pagina-estilos button:hover {
+	transform: translateY(-1px);
+}
+
+.pagina-estilos button:active {
+	transform: translateY(1px);
+}
+
+@keyframes page-enter {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes rise-in {
+	from {
+		opacity: 0;
+		transform: translateY(8px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@media (max-width: 640px) {
+	.pagina-estilos {
+		padding: 1.2rem 0.7rem 1.6rem;
+	}
+
+	.pagina-estilos .home-hero,
+	.pagina-estilos .home-nav {
+		padding: 0.9rem;
+		border-radius: 14px;
+	}
+
+	.pagina-estilos .home-links {
+		grid-template-columns: 1fr;
+		gap: 0.65rem;
+	}
+
+	.pagina-estilos .home-link {
+		min-height: 92px;
+	}
+
+	.pagina-estilos .home-lead {
+		font-size: 0.96rem;
+	}
+
+	.pagina-estilos ol,
+	.pagina-estilos table,
+	.pagina-estilos form {
+		border-radius: 12px;
+	}
+
+	.pagina-estilos th,
+	.pagina-estilos td {
+		padding: 0.62rem;
+		font-size: 0.92rem;
+	}
+
+	.pagina-estilos form {
+		padding: 0.95rem;
+	}
+
+	.pagina-estilos button {
+		width: 100%;
+	}
+
+	.pagina-estilos button[type='reset'] {
+		margin-top: 0.45rem;
+		margin-left: 0;
+	}
+}
