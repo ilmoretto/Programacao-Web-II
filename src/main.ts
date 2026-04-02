@@ -17,9 +17,9 @@ async function bootstrap() {
   app.setViewEngine('ejs');
 
   app.use(expressEjsLayouts);
-  app.set('layout', 'layouts/main-bootstrap');
-  app.set('layout extractStyles', true);
-  app.set('layout extractScripts', true);
+  app.set('layout', 'layouts/main');
+  //app.set('layout extractStyles', true);
+  //app.set('layout extractScripts', true);
 
   app.use((req: Request, res: Response, next: NextFunction) => {
     res.locals.currentPath = req.path;
