@@ -54,12 +54,11 @@
 
 */
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700");
-@import url("./../icons/simple-line-icons/css/simple-line-icons.css");
-@import url("./../icons/font-awesome-old/css/font-awesome.min.css");
-@import url("./../icons/material-design-iconic-font/css/materialdesignicons.min.css");
-@import url("./../icons/themify-icons/css/themify-icons.css");
-@import url("./../icons/line-awesome/css/line-awesome.min.css");
-@import url("./../icons/avasta/css/style.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/themify-icons/1.0.1/css/themify-icons.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css");
 @import url(./../vendor/animate/animate.min.css);
 @import url(./../vendor/aos/css/aos.min.css);
 @import url(./../vendor/perfect-scrollbar/css/perfect-scrollbar.css);
