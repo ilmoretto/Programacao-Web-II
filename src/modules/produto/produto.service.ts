@@ -3,7 +3,7 @@ import { Produto } from "./produto.entity";
 
 @Injectable()
 export class ProdutoService {
-
+        
     async findAll(): Promise<Produto[]> {
         return Produto.find();
     }
@@ -16,7 +16,7 @@ export class ProdutoService {
 
     async create(dados: any): Promise<Produto> {
         const preco = dados.preco.replace('.', '').replace(',', '.');
-
+        
         const produto = Produto.create({ ...dados, preco });
 
         return produto.save();
@@ -25,13 +25,14 @@ export class ProdutoService {
     async update(id: number, dados: any): Promise<Produto | null> {
         const produto = await this.findOne(id);
 
-        if(!produto){
+        if(!produto) {
             return null;
         }
 
-       Object.assign(produto, dados)
-       
-       return produto.save();
+        const preco = dados.preco.replace('.', '').replace(',', '.');
 
+        Object.assign(produto, { ...dados, preco });
+
+        return produto.save(); 
     }
 }

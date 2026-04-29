@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="utf-8">
@@ -13,88 +13,44 @@
     <link href="/vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
 
-
-
 </head>
 
 <body>
+    <!-- Preloader start -->
+    <%- include('partials/preloader')  %>
+    <!-- Preloader end -->
 
-    <!--*******************
-        Preloader start
-    ********************-->
-
-    <!--*******************
-        Preloader end
-    ********************-->
-
-
-    <!--**********************************
-        Main wrapper start
-    ***********************************-->
+    <!-- Main wrapper start -->
     <div id="main-wrapper">
 
-        <!--Nav header start-->
-        <%- include('partials/nav-header') %>
+        <!-- Nav header start -->
+        <%- include('partials/nav-header')  %>
+        <!-- Nav header end -->
+        
+        <!-- Header start -->
+        <%- include('partials/header')  %>
+        <!-- Header end ti-comment-alt -->
+        
+        <!-- Sidebar start -->
+        <%- include('partials/sidebar')  %>
+        <!-- Sidebar end -->
 
-        <!--**********************************
-            Nav header end
-        ***********************************-->
-
-        <!--**********************************
-            Header start
-        ***********************************-->
-        <%- include('partials/header') %>
-
-        <!--**********************************
-            Header end ti-comment-alt
-        ***********************************-->
-
-        <!--**********************************
-            Sidebar start
-        ***********************************-->
-        <%- include('partials/sidebar') %>
-      
-        <!--**********************************
-            Sidebar end
-        ***********************************-->
-
-        <!--**********************************
-            Content body start
-        ***********************************-->
+        <!-- Content body start -->
         <div class="content-body">
             <!-- row -->
             <div class="container-fluid">
+
                 <%- body %>
 
             </div>
         </div>
-        <!--**********************************
-            Content body end
-        ***********************************-->
+        <!-- Content body end -->
 
-
-        <!--**********************************
-            Footer start
-            <%- include('partials/footer') %>
-        ***********************************-->
-
-        <!--**********************************
-            Footer end
-        ***********************************-->
-
-        <!--**********************************
-           Support ticket button start
-        ***********************************-->
-
-        <!--**********************************
-           Support ticket button end
-        ***********************************-->
-
-
+        <!-- Footer start -->
+        <%- include('partials/footer')  %>
+        <!-- Footer end -->
     </div>
-    <!--**********************************
-        Main wrapper end
-    ***********************************-->
+    <!-- Main wrapper end -->
 
     <!--**********************************
         Scripts

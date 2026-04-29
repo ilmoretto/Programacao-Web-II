@@ -1,5 +1,4 @@
-import { BlockList } from "net";
-import { BaseEntity, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity('produtos')
 export class Produto extends BaseEntity {
@@ -21,6 +20,6 @@ export class Produto extends BaseEntity {
     @CreateDateColumn({ name: 'criado_em' })
     criadoEm!: Date;
 
-    @CreateDateColumn({ name: 'atualizado_em', nullable: true })
+    @UpdateDateColumn({ name: 'atualizado_em', nullable: true })
     atualizadoEm!: Date;
 }

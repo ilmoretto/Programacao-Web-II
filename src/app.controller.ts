@@ -6,46 +6,35 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  @Render('autenticacao/login')
-  loginPrincipal(): object {
-    return {
-      titulo: 'Entrar no sistema',
-    };
-  }
-
-  @Get('inicial')
   @Render('inicial')
-  getHome(): object {
-    return {
-      titulo: 'Navegação',
-      rotas: [
-        { path: '/contato', label: 'Contato' },
-        { path: '/sobre', label: 'Sobre' },
-        { path: '/curriculo', label: 'Currículo' },
-        { path: '/produtos', label: 'Produtos' },
-      ],
-    };
-  }
+  getHello(): object {
+    const pessoas = [
+      { nome: 'João Teixeira', email: 'joao.teixeira@ifro.edu.br' },
+      { nome: 'Reinaldo Pereira', email: 'reinaldo.pereira@ifro.edu.br' },
+      { nome: 'Jackson Henrique', email: 'jackson.henrique@ifro.edu.br' },
+      { nome: 'Elias Abreu', email: 'elias.abreu@ifro.edu.br' },
+      { nome: 'Clayton Andrade', email: 'clayton.andrade@ifro.edu.br' },
+      { nome: 'Geilson Guardia', email: 'gleison.guardia@ifro.edu.br' },
+    ];
 
-  @Get('contato')
-  @Render('contato')
-  getContato(): object {
-    return { titulo: 'Informações de contato' };
+    return {
+      titulo: 'AppWeb com NestJs',
+      horaAgora: new Date().toLocaleString('pt-BR'),
+      listaPessoas: pessoas,
+    };
   }
 
   @Get('sobre')
-  @Render('sobre')
+  @Render('_sobre')
   getSobre(): object {
     return {
-      titulo: 'Sobre mim',
-      nome: 'Alencar Ferreira Morete da Cruz',
-      curso: 'Análise e Desenvolvimento de Sistemas - IFRO',
-      resumo:
-        'Acadêmico de ADS no IFRO com base em conceitos de TI e linguagem C#. Atua desde 2022 como Secretário Setor Geral no Conservatório de Música Sonata LTDA, desenvolvendo organização, comunicação e resolução de problemas.',
-      objetivo:
-        'Atuar em oportunidades de tecnologia para aplicar habilidades técnicas e administrativas, evoluir profissionalmente e gerar valor para a equipe e para a empresa.',
-      habilidades: ['C#', 'TypeScript', 'NestJS', 'HTML/CSS', 'SQL'],
-      hobbies: ['Programar', 'Jogos', 'Música', 'Leitura', 'Culinária'],
+      titulo: 'Seção de informações do sistema web.',
     };
+  }
+
+  @Get('login')
+  @Render('autenticacao/login')
+  login(): object {
+    return { layout: false };
   }
 }
