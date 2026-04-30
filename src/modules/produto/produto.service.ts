@@ -1,22 +1,23 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, Redirect } from "@nestjs/common";
 import { Produto } from "./produto.entity";
 
 @Injectable()
 export class ProdutoService {
-        
+
     async findAll(): Promise<Produto[]> {
         return Produto.find();
     }
 
     async findOne(id: number): Promise<Produto | null> {
         return Produto.findOne({
-            where: { id }
+            where: { id },
+
         });
     }
 
     async create(dados: any): Promise<Produto> {
         const preco = dados.preco.replace('.', '').replace(',', '.');
-        
+
         const produto = Produto.create({ ...dados, preco });
 
         return produto.save();
@@ -25,7 +26,7 @@ export class ProdutoService {
     async update(id: number, dados: any): Promise<Produto | null> {
         const produto = await this.findOne(id);
 
-        if(!produto) {
+        if (!produto) {
             return null;
         }
 
@@ -33,6 +34,15 @@ export class ProdutoService {
 
         Object.assign(produto, { ...dados, preco });
 
-        return produto.save(); 
+        return produto.save();
+    }
+    async delete(id: number): Promise<void> {
+        const produto = await this.findOne(id);
+
+        if (!produto) {
+            return;
+        }
+
+        await produto.remove();
     }
 }
