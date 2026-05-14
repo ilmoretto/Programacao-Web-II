@@ -1,12 +1,27 @@
-import { Application } from 'express';
+import { type Application } from 'express';
+import {
+  type ValidationErrorsViewModel,
+  validationErrorsHelper,
+} from 'nest-validation-view';
 import { dateFormat } from './date.helper';
-import { moneyFormat } from './money.helper'; // <- novo helper
+import { moneyFormat } from './money.helper'; // <--- Importe aqui
 
-const helpers: Record<string, unknown> = {
-    dateFormat,
-    moneyFormat
+
+
+type ViewHelpers = {
+  dateFormat: typeof dateFormat;
+  moneyFormat: typeof moneyFormat;
+  validationErrors: (
+    errors: ValidationErrorsViewModel | null | undefined,
+  ) => ValidationErrorsViewModel;
 };
 
 export const registerHelpers = (app: Application): void => {
-    Object.assign(app.locals, helpers);
+  const helpers: ViewHelpers = {
+    dateFormat,          // <---
+    moneyFormat,         // <---
+    validationErrors: validationErrorsHelper,
+  };
+
+  Object.assign(app.locals, helpers);
 };

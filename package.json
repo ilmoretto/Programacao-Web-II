@@ -27,10 +27,13 @@
     "@nestjs/typeorm": "^11.0.1",
     "@types/ejs": "^3.1.5",
     "@types/express-ejs-layouts": "^2.5.4",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.15.1",
     "dotenv": "^17.4.2",
     "ejs": "^5.0.1",
     "express-ejs-layouts": "^2.5.1",
     "mysql2": "^3.22.2",
+    "nest-validation-view": "^0.2.5",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1",
     "typeorm": "^0.3.28"

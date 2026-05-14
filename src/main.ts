@@ -5,9 +5,21 @@ import { AppModule } from './app.module';
 import { Logger } from '@nestjs/common';
 import expressEjsLayouts from 'express-ejs-layouts';
 import { registerHelpers } from './helpers';
+import { buildValidationErrorPayload } from 'nest-validation-view';
+import { BadRequestException, ValidationPipe } from '@nestjs/common';
+
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
+
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      transform: true,
+      exceptionFactory: (errors) =>
+        new BadRequestException(buildValidationErrorPayload(errors)),
+    }),
+  );
 
   app.useStaticAssets(join(__dirname, '..', 'public'));
   app.setBaseViewsDir(join(__dirname, '..', 'views'));
