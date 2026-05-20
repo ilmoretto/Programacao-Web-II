@@ -51,6 +51,11 @@ $(function(){
         });
     });
 
+    $(".form-control").focus(function() {
+        $(this).removeClass("is-invalid");
+        $(this).closest('.form-group').find('.invalid-feedback').attr('style', 'display: none !important');
+    });
+
 });
 
 //     $('.remove').click(function() {

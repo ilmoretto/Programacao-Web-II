@@ -1,7 +1,8 @@
 import { Body, Controller, Get, Post, Redirect, Render, Param, HttpCode } from "@nestjs/common";
 import { ProdutoService } from "./produto.service";
-import { ValidationView, toBoolean } from 'nest-validation-view';
-import { CreateProdutoDto } from "./dtos/create-produto-dto";
+import { ValidationView } from "nest-validation-view";
+import { CreateProdutoDto } from "./dtos/create-produto.dto";
+import { UpdateProdutoDto } from "./dtos/update-produto.dto";
 
 @Controller('produtos')
 export class ProdutoController {
@@ -27,9 +28,9 @@ export class ProdutoController {
         };
     }
 
-    @Post('criar')
-    @Redirect('/produtos')
-    @ValidationView('produto/editar', ({ request, errors }) => ({
+        @Post('criar')
+        @Redirect('/produtos')
+        @ValidationView('produto/formulario', ({ request, errors }) => ({
         produto: {
           ...request.body,
         },
@@ -55,11 +56,21 @@ export class ProdutoController {
         };
     }
 
-    @Post(':id/editar')
-    @Redirect('/produtos')
-    async formEditarSalvar(@Param('id') id: number, @Body() dados: any): Promise<void>{
-        await this.produtoService.update(id, dados);
-    }
+        @Post(':id/editar')
+        @Redirect('/produtos')
+        @ValidationView('produto/formulario', ({ request, errors }) => ({
+                produto: {
+                    id: request.params.id,
+                    ...request.body,
+                },
+                errors,
+            }))
+        async formEditarSalvar(
+                @Param('id') id: number,
+                @Body() dados: UpdateProdutoDto,
+        ): Promise<void>{
+                await this.produtoService.update(id, dados);
+        }
 
     @Get(':id/excluir')
     @Render('produto/remover')
