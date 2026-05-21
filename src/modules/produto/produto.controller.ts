@@ -3,16 +3,23 @@ import { ProdutoService } from "./produto.service";
 import { ValidationView } from "nest-validation-view";
 import { CreateProdutoDto } from "./dtos/create-produto.dto";
 import { UpdateProdutoDto } from "./dtos/update-produto.dto";
+import { FornecedorService } from "../fornecedor/fornecedor.service";
 
 @Controller('produtos')
 export class ProdutoController {
 
-    constructor(private produtoService: ProdutoService) {}
+    constructor(
+        private produtoService: ProdutoService,
+        private fornecedorService: FornecedorService
+
+    ) {}
 
     @Get()
     @Render('produto/inicial')
     async inicial(): Promise<object> {
         const listaProdutos = await this.produtoService.findAll();
+
+
 
         return {
             titulo: 'Consulta de Produtos',
@@ -23,8 +30,10 @@ export class ProdutoController {
     @Get('criar')
     @Render('produto/formulario')
     async formularioCriar(): Promise<object> {
+        const fornecedores = await this.fornecedorService.findAll();
         return {
             titulo: 'Novo produto',
+            fornecedores,
         };
     }
 
@@ -44,6 +53,7 @@ export class ProdutoController {
     @Render('produto/formulario')
     async formEditar(@Param('id') id: number): Promise<object> {
         const produto = await this.produtoService.findOne(id);
+        const fornecedores = await this.fornecedorService.findAll();
 
         if(!produto) {
             throw new Error('Produto não encontrado!');            
@@ -53,6 +63,7 @@ export class ProdutoController {
             titulo: 'Edição de Produto',
             subtitulo: `Atualização do produto: ${produto.nome}`,
             produto,
+            fornecedores,
         };
     }
 

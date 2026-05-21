@@ -1,0 +1,74 @@
+<% const erros = validationErrors(locals.errors); %>
+<% const fornecedor = locals.fornecedor || {} %>
+<div class="row page-titles mx-0">
+    <div class="col-sm-6 p-md-0">
+        <div class="welcome-text">
+            <h4>
+                <%= locals.titulo %>
+            </h4>
+            <p class="mb-0">&raquo; Adicionar novo fornecedor</p>
+        </div>
+    </div>
+    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Inicial</a></li>
+            <li class="breadcrumb-item"><a href="/fornecedores">Consulta de Fornecedores</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0)">Novo Fornecedor</a></li>
+        </ol>
+    </div>
+</div>
+<!-- row -->
+<div class="row">
+    <div class="col-lg-12">
+
+        <% if (erros.all.length) { %>
+            <div class="alert alert-danger">
+                <h5>Nao foi possivel salvar</h5>
+                <ul>
+                    <% erros.all.forEach((mensagem) => { %>
+                        <li><%= mensagem %></li>
+                    <% }) %>
+                </ul>
+            </div>
+        <% } %>
+
+        <div class="card">
+            <div class="card-body">
+                <form action="/fornecedores/criar" method="POST">
+                    <div class="form-group mb-3">
+                        <label for="nome" class="form-label">Nome do Fornecedor</label>
+                        <input type="text" class="form-control <%= erros.has('nome') ? 'is-invalid' : '' %>" id="nome" name="nome"
+                            placeholder="Informe o nome do fornecedor" value="<%= fornecedor ? fornecedor.nome : '' %>">
+
+                        <% if (erros.has('nome')) { %>
+                            <div class="invalid-feedback d-block">
+                                <ul>
+                                    <% erros.get('nome').forEach((mensagem) => { %>
+                                        <li><%= mensagem %></li>
+                                    <% }) %>
+                                </ul>
+                            </div>
+                        <% } %>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6 mb-3">
+                            <label for="ativo" class="form-label">Fornecedor Ativo?</label>
+                            <select name="ativo" class="form-control">
+                                <option value="true" <%= fornecedor.ativo ? 'selected' : '' %>>Ativo</option>
+                                <option value="false" <%= fornecedor.ativo === false ? 'selected' : '' %>>Inativo</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary mr-2">Salvar Fornecedor</button>
+                        <a href="/fornecedores" class="btn btn-warning">Cancelar</a>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

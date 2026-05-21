@@ -4,13 +4,13 @@
             <h4>
                 <%= titulo %>
             </h4>
-            <p class="mb-0">&raquo; Consulte todos os produtos do sistema</p>
+            <p class="mb-0">&raquo; Consulte todos os fornecedores do sistema</p>
         </div>
     </div>
     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Inicial</a></li>
-            <li class="breadcrumb-item active"><a href="javascript:void(0)">Produtos</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0)">Fornecedores</a></li>
         </ol>
     </div>
 </div>
@@ -28,12 +28,12 @@
                             </div>
                             <div class="col-lg-2 mt-2 mt-lg-0">
                                 <button type="submit" class="btn btn-primary mb-2">Pesquisar</button>
-                                <button type="submit" class="btn btn-warning mb-2">Pesquisar</button>
+                                <button type="reset" class="btn btn-warning mb-2">Limpar</button>
                             </div>
                         </div>
                     </form>
                 </div>
-                <a href="/produtos/criar" class="btn btn-primary mb-2">Adicionar Novo Produto</a>
+                <a href="/fornecedores/criar" class="btn btn-primary mb-2">Adicionar Novo Fornecedor</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -42,23 +42,19 @@
                             <tr>
                                 <th>#</th>
                                 <th>Nome</th>
-                                <th>Preço</th>
-                                <th>Fornecedor</th>
                                 <th>Ativo</th>
                                 <th>Criado em</th>
-                                <th>Ações</th>
+                                <th>Atualizado em</th>
                             </tr>
                         </thead>
                         <tbody>
 
-                            <% for( let index = 0; index < produtos.length; index++ ) { %>
+                            <% for( let index = 0; index < fornecedores.length; index++ ) { %>
                                 <tr>
                                     <td><%= index + 1 %></td>
-                                    <td><%= produtos[index].nome %></td>
-                                    <td><%= moneyFormat(produtos[index].preco) %></td>
-                                    <td><%= produtos[index]?.fornecedor?.nome ? produtos[index].fornecedor.nome : '-' %></td>
+                                    <td><%= fornecedores[index].nome %></td>
                                     <td>
-                                        <% if (produtos[index].ativo) { %>
+                                        <% if (fornecedores[index].ativo) { %>
 
                                             <span class="badge badge-primary">Ativo</span>
 
@@ -68,19 +64,8 @@
 
                                         <% } %>
                                     </td>
-                                    <td><%= dateFormat(produtos[index].criadoEm) %></td>
-                                    <td>
-                                        <a href="/produtos/<%= produtos[index].id %>/editar" class="text-warning mr-1">
-                                            <i class="fa fa-pencil fa-lg"></i>
-                                        </a>
-                                        <a href="/produtos/<%= produtos[index].id %>/excluir" class="text-danger">
-                                            <i class="fa fa-trash fa-lg"></i>
-                                        </a>
-                                        
-                                        <a href="#" class="text-secondary remover" data-name="<%= produtos[index].nome %>" data-id="<%= produtos[index].id %>">
-                                            <i class="fa fa-trash fa-lg"></i>
-                                        </a>
-                                    </td>
+                                    <td><%= dateFormat(fornecedores[index].criadoEm) %></td>
+                                    <td><%= fornecedores[index].atualizadoEm ? dateFormat(fornecedores[index].atualizadoEm) : '-' %></td>
                                 </tr>
                             <% } %>
 

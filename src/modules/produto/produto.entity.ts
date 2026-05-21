@@ -1,4 +1,5 @@
-import { BaseEntity, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { BaseEntity, Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Fornecedor } from "../fornecedor/fornecedor.entity";
 
 @Entity('produtos')
 export class Produto extends BaseEntity {
@@ -22,4 +23,8 @@ export class Produto extends BaseEntity {
 
     @UpdateDateColumn({ name: 'atualizado_em', nullable: true })
     atualizadoEm!: Date;
+
+    @ManyToOne(() => Fornecedor)
+    @JoinColumn({ name: 'fornecedor_id' })
+    fornecedor?: Fornecedor;
 }

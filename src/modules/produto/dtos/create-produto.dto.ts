@@ -37,4 +37,10 @@ export class CreateProdutoDto {
   @Min(0.01, { message: "O preço deve no mínimo R$ 0,01" })
   @Type(() => Number)
   preco!: number;
+
+  @IsNotEmpty({ message: "Selecione um fornecedor" })
+  @IsNumber()
+  @Transform(({ value }) => parseInt(value))
+  @Type(() => Number)
+  fornecedorId!: number;
 }

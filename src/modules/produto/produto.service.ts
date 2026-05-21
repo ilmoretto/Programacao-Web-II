@@ -15,17 +15,18 @@ export class ProdutoService {
         //         criadoEm: true
         //     }
         // });
-        return Produto.find();
+        return Produto.find({ relations: ['fornecedor'] });
     }
 
     async findOne(id: number): Promise<Produto | null> {
         return Produto.findOne({
-            where: { id }           
-        });
+            where: { id },
+            relations: ['fornecedor']
+        });         
     }
 
     async create(dados: CreateProdutoDto): Promise<Produto> {
-        const produto = Produto.create({ ...dados });
+        const produto = Produto.create({ ...dados, fornecedor: { id: dados.fornecedorId } });
 
         return produto.save();
     }
